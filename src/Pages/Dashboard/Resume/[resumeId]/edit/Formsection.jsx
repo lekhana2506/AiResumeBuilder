@@ -8,6 +8,7 @@ import Experience from './../edit/FormComponents/Experience'
 import Education from './FormComponents/Education'
 import Skills from './FormComponents/Skills'
 import { Navigate, useParams } from 'react-router-dom'
+import Certificate from '../edit/FormComponents/Certificate'
 
 
 function Formsection() {
@@ -25,7 +26,7 @@ function Formsection() {
       </div>
       {activeFormIndex==1? 
       < PersonalDetail enableNext={(v)=>setEnableNext(v)}/>
-      :activeFormIndex==2?< Summery enableNext={(v)=>setEnableNext(v)}/>:activeFormIndex==3?<Experience/>:activeFormIndex==4?<Education/>:activeFormIndex==5?<Skills/>:activeFormIndex==6?<Navigate to={'/myresume/'+documentId+"/View"}/>:null}
+      :activeFormIndex==2?< Summery enableNext={(v)=>setEnableNext(v)}/>:activeFormIndex==3?<Experience/>:activeFormIndex==4?<Education/>:activeFormIndex==5?<Skills/>:activeFormIndex==6?<Certificate/>:activeFormIndex==7?<Navigate to={'/myresume/'+documentId+"/View"}/>:null}
 
     </div>
   )
