@@ -1,6 +1,9 @@
 import React from 'react';
 
 function CertificatePreview({ resumeInfo }) {
+  // Safely access the Certificate property
+  const certificates = resumeInfo?.Certificate || []; // Default to an empty array if undefined
+
   return (
     <div className='my-6'>
       <h2
@@ -13,8 +16,8 @@ function CertificatePreview({ resumeInfo }) {
       </h2>
       <hr style={{ borderColor: resumeInfo?.themeColor }} />
 
-      {resumeInfo?.Certificate.length > 0 ? (
-        resumeInfo.Certificate.map((certificate, index) => (
+      {certificates.length > 0 ? ( // Use the safe certificates array here
+        certificates.map((certificate, index) => (
           <div key={index} className='my-5 flex justify-between items-center'>
             <div className='flex-1'>
               <h2

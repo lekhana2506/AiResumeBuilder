@@ -38,8 +38,8 @@ function PersonalDetail({enableNext}) {
         const data={
             data:formData
         }
-        GlobalApi.UpdateResumeDetail(params?.resumeId,data).then(resp=>{
-            console.log('Resume ID:', params?.resumeId);
+        GlobalApi.UpdateResumeDetail(params?.documentId,data).then(resp=>{
+            console.log('Resume ID:', params?.documentId);
             enableNext(true)
             setLoading(false)
         },(error)=>{

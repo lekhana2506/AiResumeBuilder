@@ -65,22 +65,28 @@ function Experience() {
     }, [experienceList]);
 
     // Save data (e.g., to API or local storage)
-    const onSave = () => {
+    const onSave = async () => {
         const data = {
             data: {
-                experience: experienceList
+                experience: experienceList,
+            },
+        };
+    
+        console.log("Saving data: ", data);
+        setLoading(true); // Set loading before making the API call
+    
+        GlobalApi.UpdateResumeDetail(params?.documentId, data).then(
+            (res) => {
+                console.log('Response:', res);
+                setLoading(false);
+            },
+            (error) => {
+                console.error('Error:', error.response ? error.response.data : error.message);
+                setLoading(false);
             }
-        }
-        console.log("Saving data: ", data)
-        // Do the save operation here (API call, etc.)
-
-        GlobalApi.UpdateResumeDetail(params?.documentId,data).then(res=>{
-            console.log(res);
-            setLoading(false);
-        },(error)=>{
-            setLoading(false);
-        })
-    }
+        );
+    };
+    
 
     return (
         <div>
